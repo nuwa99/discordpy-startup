@@ -44,10 +44,10 @@ async def players():
     
     try:
       # Players Information
-      x = requests.get(f'http://139.99.125.178:30120/players.json')
+      x = requests.get(f'http://15.235.160.88:30120/players.json')
       info = x.json()
       # Server Information 
-      p = requests.get(f'http://139.99.125.178:30120/dynamic.json')
+      p = requests.get(f'http://15.235.160.88:30120/dynamic.json')
       server = p.json()
       # maxPlayers & Players
       players, maxPlayers = server['clients'], server['sv_maxclients']
@@ -62,7 +62,7 @@ async def players():
  
       # Embed 
       if players < 75:
-          chn = client.get_channel(993944238112911470)
+          chn = client.get_channel(1012835686870687845)
           tz = pytz.timezone('Asia/Colombo')
           ct = datetime.datetime.now(tz=tz).strftime('%d/%m/%Y %H:%M:%S')
           embed = discord.Embed(
@@ -76,7 +76,7 @@ async def players():
       else:
           text1 = x = "\n".join(playernames.split("\n")[:70])
           text2 = x = "\n".join(playernames.split("\n")[70:])
-          chn = client.get_channel(993944238112911470)
+          chn = client.get_channel(1012835686870687845)
           tz = pytz.timezone('Asia/Colombo')
           ct = datetime.datetime.now(tz=tz).strftime('%d/%m/%Y %H:%M:%S')
           embed = discord.Embed(
@@ -85,7 +85,7 @@ async def players():
             description= text1
           )
           await chn.send(embed=embed)
-          chn = client.get_channel(993944238112911470)
+          chn = client.get_channel(1012835686870687845)
           embed = discord.Embed(
             colour = discord.Colour.blue(),
             description= text2
@@ -95,7 +95,7 @@ async def players():
           await chn.send(embed=embed)
                 
     except:
-      chn = client.get_channel(993944238112911470)
+      chn = client.get_channel(1012835686870687845)
       embed = discord.Embed(
         colour = discord.Colour.red(),
         title = f'Status: Offline',
